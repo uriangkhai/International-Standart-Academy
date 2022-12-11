@@ -4,19 +4,20 @@ import GoTop from './GoTop'
 
 const Layout = ({ children }) => {
     return(
-        <>
+        <React.Fragment>
             <Head>
-                {/* Required meta tags */}
-                <meta charSet="utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
- 
-                <title>Pisa - Cyber Security Services Company React Next Template</title>
+                <title>eDemy - React Next.js Education LMS Template</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+                <meta name="description" content="eDemy - React Next.js Education LMS Template" />
+                <meta name="og:title" property="og:title" content="eDemy - React Next.js Education LMS Template"></meta>
+                <meta name="twitter:card" content="eDemy - React Next.js Education LMS Template"></meta>
+                <link rel="canonical" href="https://edemy-react.envytheme.com/"></link>
             </Head>
 
             {children}
-        
+  
             <GoTop scrollStepInPx="100" delayInMs="10.50" />
-        </>
+        </React.Fragment>
     );
 }
 

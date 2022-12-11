@@ -7,16 +7,23 @@ const Custom404 = () => {
             <div className="d-table">
                 <div className="d-table-cell">
                     <div className="container">
-                        <div className="error-content-wrap">
-                            <img src="/img/404.png" alt="Image" />
-                            <h3>Oops! Page Not Found</h3>
-                            <p>The page you were looking for could not be found.</p>
-
-                            <Link href="/">
-                                <a className="default-btn page-btn">
-                                    Return To Home Page
-                                </a>
-                            </Link>
+                        <div className="error-content">
+                            <img src="/images/error.png" alt="image" />
+                            <h3>Error 404 : Page Not Found</h3>
+                            <p>The page you are looking for might have been removed had its name changed or is temporarily unavailable.</p>
+                            
+							<div className="btn-box">
+								<Link href="/">
+                                	<a className="default-btn">
+										<i className="flaticon-history"></i> Go Back <span></span>
+									</a>
+								</Link>
+								<Link href="/">
+                                	<a className="default-btn">
+										<i className="flaticon-home"></i> Homepage <span></span>
+									</a>
+								</Link>
+                            </div>
                         </div>
                     </div>
                 </div>

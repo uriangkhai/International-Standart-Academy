@@ -1,50 +1,44 @@
-import React, { Component } from "react";
+import React from 'react';
 
-export default class GoTop extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            is_visible: false
-        };
-    }
+const GoTop = ({scrollStepInPx, delayInMs}) => {
 
-    componentDidMount() {
-        var scrollComponent = this;
-        document.addEventListener("scroll", function(e) {
-            scrollComponent.toggleVisibility();
+    const [thePosition, setThePosition] = React.useState(false);
+    const timeoutRef = React.useRef(null);
+
+    React.useEffect(() => {
+        document.addEventListener("scroll", () => {
+            if (window.scrollY > 170) {
+                setThePosition(true)
+            } else {
+                setThePosition(false);
+            }
         });
-    }
-
-    toggleVisibility() {
-        if (window.pageYOffset > 300) {
-            this.setState({
-                is_visible: true
-            });
-        } else {
-            this.setState({
-                is_visible: false
-            });
+    }, [])
+    
+    const onScrollStep = () => {
+        if (window.pageYOffset === 0){
+            clearInterval(timeoutRef.current);
         }
+        window.scroll(0, window.pageYOffset - scrollStepInPx);
     }
 
-    scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
+    const scrollToTop = () => {
+        timeoutRef.current = setInterval(onScrollStep, delayInMs);
     }
 
-    render() {
-        const { is_visible } = this.state;
+    const renderGoTopIcon = () => {
         return (
-            <div className="scroll-to-top">
-                {is_visible && ( 
-                    <div className="go-top" onClick={() => this.scrollToTop()}>
-                        <i className="bx bx-chevrons-up"></i>
-                        <i className="bx bx-chevrons-up"></i>
-                    </div>
-                )}
+            <div className={`go-top ${thePosition ? 'active' : ''}`} onClick={scrollToTop}>
+                <i className='bx bx-chevron-up'></i>
             </div>
-        );
+        )
     }
+
+    return (
+        <React.Fragment>
+            {renderGoTopIcon()}
+        </React.Fragment>
+    )
 }
+
+export default GoTop;

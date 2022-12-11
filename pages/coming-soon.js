@@ -1,7 +1,8 @@
 import React from 'react';
+import Link from 'next/link';
 
 const ComingSoon = () => {
-	const [days, setDays] = React.useState('');
+    const [days, setDays] = React.useState('');
     const [hours, setHours] = React.useState('');
     const [minutes, setMinutes] = React.useState('');
     const [seconds, setSeconds] = React.useState('');
@@ -31,66 +32,52 @@ const ComingSoon = () => {
         setMinutes(minutes);
         setSeconds(seconds);
     }
-
     return (
         <div className="coming-soon-area">
-			<div className="d-table">
-				<div className="d-table-cell">
-					<div className="container">
-						<div className="coming-soon-content">
-							<h1>Coming Soon</h1>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices.</p>
+            <div className="d-table">
+                <div className="d-table-cell">
+                    <div className="coming-soon-content">
+                        <Link href="/">
+                            <a className="logo">
+                                <img src="/images/logo.png" alt="image" />
+                            </a>
+                        </Link>
 
-							<div id="timer">
-                                <div id="days">
-                                    {days} <span>Days</span>
-                                </div>
-                                <div id="hours">
-                                    {hours} <span>Hours</span>
-                                </div>
-                                <div id="minutes">
-                                    {minutes} <span>Minutes</span>
-                                </div>
-                                <div id="seconds">
-                                    {seconds} <span>Seconds</span>
-                                </div>
+                        <h2>We Are Launching Soon</h2>
+
+                        <div id="timer" className="flex-wrap d-flex justify-content-center">
+                            <div id="days" className="align-items-center flex-column d-flex justify-content-center">
+                                {days} <span>Days</span>
+                            </div>
+                            <div id="hours" className="align-items-center flex-column d-flex justify-content-center">
+                                {hours} <span>Hours</span>
+                            </div>
+                            <div id="minutes" className="align-items-center flex-column d-flex justify-content-center">
+                                {minutes} <span>Minutes</span>
+                            </div>
+                            <div id="seconds" className="align-items-center flex-column d-flex justify-content-center">
+                                {seconds} <span>Seconds</span>
+                            </div>
+                        </div>
+  
+                        <form className="newsletter-form" data-toggle="validator">
+                            <div className="form-group">
+                                <input type="email" className="input-newsletter" placeholder="Enter your email" name="EMAIL" required />
+                                <span className="label-title">
+                                    <i className='bx bx-envelope'></i>
+                                </span>
                             </div>
 
-							<form className="newsletter-form">
-								<input type="email" className="input-newsletter" placeholder="Enter email address" name="email" required />
-			
-								<button type="submit" className="default-btn">
-									Notify Me
-								</button>
-							</form> 
-
-							<ul className="header-content-right">
-								<li>
-									<a href="https://www.facebook.com/" target="_blank">
-										<i className="bx bxl-facebook"></i>
-									</a>
-								</li>
-								<li>
-									<a href="https://www.twitter.com/" target="_blank">
-										<i className="bx bxl-twitter"></i>
-									</a>
-								</li>
-								<li>
-									<a href="https://www.linkedin.com/" target="_blank">
-										<i className="bx bxl-linkedin"></i>
-									</a>
-								</li>
-								<li>
-									<a href="https://www.instagram.com/" target="_blank">
-										<i className="bx bxl-instagram"></i>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+                            <button type="submit" className="default-btn">
+                                <i className="flaticon-user"></i> Subscribe <span></span>
+                            </button>
+ 
+                            <p>If you would like to be notified when your app is live, Please subscribe to our mailing list.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
 
